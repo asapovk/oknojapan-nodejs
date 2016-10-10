@@ -30,7 +30,7 @@ router.post('/blog/:id', function(req,res,next){
   var user = req.user;
   var content = req.body.commentText;
   var newComment = new Comment ({
-    author: user.id,
+    author: user.username,
     content: content,
     date: 10
   });
