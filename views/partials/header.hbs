@@ -8,34 +8,29 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Brand</a>
+      <a class="navbar-brand" href="/">oknojapan.com</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping cart <span class="badge">{{session.cart.totalQty}}</span></a></li>
+        <li><a href="/">Online Lessons<span class="badge">{{session.cart.totalQty}}</span></a></li>
+        {{#if login}}
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> User Managment<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> {{user.username}}<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            {{# if login}}
             <li><a href="/user/profile">
               User account
             </a></li>
-            {{else}}
-            <li><a href="/user/signup">
-              Sign Up
+            <li><a href="/user/logout">
+              Logout
             </a></li>
-            {{/if}}
-            <li role="separator" class="divider"></li>
-            {{#if login}}
-              <li><a href="/user/logout">Logout</a></li>
-            {{else}}
-              <li><a href="/user/signin">Sign In</a></li>
-            {{/if}}
           </ul>
         </li>
+        {{else}}
+        <li><a href="/user/signin"><i class="fa fa-user" aria-hidden="true"></i> Sign In</a></li>
+        {{/if}}
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
