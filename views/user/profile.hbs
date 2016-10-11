@@ -5,4 +5,21 @@
     <p>{{user.email}}</p>
     </div>
   </div>
+  <div class="col-md-4">
+   <div class="panel panel-body panel-default">
+      {{# each userComments}}
+      <div class="media">
+          <a class="pull-left" href="#">
+              <img class="media-object" src="http://placehold.it/64x64" alt="">
+          </a>
+          <div class="media-body">
+              <h4 class="media-heading">{{this.author}}
+                  <small>{{this.date}}</small>
+              </h4>
+              {{this.content}}
+          </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
 </div>

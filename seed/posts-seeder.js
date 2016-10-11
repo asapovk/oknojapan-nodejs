@@ -11,7 +11,7 @@ var posts = [
     date: 10,
     author: 'Kostya',
     content: 'This is the content',
-    comments : [{author: 'Kostya', content: 'Dummy content', date: 1}]
+    comments : []
   }),
   new Product({
     imagePath: 'https://upload.wikimedia.org/wikipedia/en/5/5e/Gothiccover.png',
@@ -20,7 +20,7 @@ var posts = [
     date: 12,
     author: 'Kolya',
     content: 'This is the content',
-    comments: [{author: 'Kostya', content: 'Dummy content', date: 1}]
+    comments: []
   })
 
 ];

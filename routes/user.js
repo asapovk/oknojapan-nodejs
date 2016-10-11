@@ -2,14 +2,29 @@ var express = require('express');
 var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
+var Post = require('../models/post');
 
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
 router.get('/profile', isLoggedIn, function(req,res,next){
   var user = req.user;
-  res.render('user/profile', {user: user});
+  var userComments =[];
+  Post.find(function(err, docs){
+    for(var i = 0; i<docs.length; i++){
+      var currentComment = docs[i].comments.find(function(comment){
+        return comment.author === user.username;
+      });
+      if (currentComment){
+      userComments.push(currentComment);
+      }
+    };
+    console.log(userComments);
+    res.render('user/profile', {user: user, userComments: userComments});
+  });
 });
+
+
 
 router.get('/logout', isLoggedIn, function (req,res,next){
   req.logout();

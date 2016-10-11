@@ -8,7 +8,7 @@ var schema = new Schema({
   date: {type: Number, required: true},
   author: {type: String, required: true},
   content: {type: String, required: true},
-  comments: {type: Array, required: true }
+  comments: {type: Array, required: false }
 });
 
 module.exports = mongoose.model('Post', schema);
